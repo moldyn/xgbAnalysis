@@ -215,5 +215,6 @@ feature.selection <- function(output_dir = "./featureSelection",
       #   watchlist <- list(train = train.matrix)
       # }
     }
+    gc()
   }
 }
