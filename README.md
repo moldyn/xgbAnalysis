@@ -25,6 +25,6 @@ Install the xgbAnalysis package, using the R-devtools package
 if ( ! ("devtools" %in% installed.packages())) {
   install.packages("devtools")
 }
-devtools::install_github("sbbrandt/xgbAnalysis")
+devtools::install_github("moldyn/xgbAnalysis")
 library(xgbAnalysis)
 ```
