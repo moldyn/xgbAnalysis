@@ -20,17 +20,17 @@ train.model <- function(data_dir, output_dir, params=NA, nrounds = 20) {
     dir.create(output_dir, showWarnings = F, recursive = T)
   }
   if(is.na(params)){
-    objective_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "objective")
-    num_class_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "num_class")
-    eta_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "eta")
-    gamma_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "gamma")
-    max_depth_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "max_depth")
-    min_child_weight_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "min_child_weight")
-    subsample_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "subsample")
-    colsample_bytree_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "colsample_bytree")
-    eval_metric_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "eval_metric")
-    nthread_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "nthread")
-    params <- list(max_depth = max_depth_, eta = eta_, gamma = gamma_, verbose = 0, nthread = nthread_, objective = objective_, eval_metric = eval_metric_, num_class = num_class_, min_child_weight = min_child_weight_, subsample = subsample_, colsample_bytree = colsample_bytree_)
+    objective_ = as.list( fread(paste(data_dir, "train.parameter", sep = "/")) )["objective"]
+    num_class_ = as.list( fread(paste(data_dir, "train.parameter", sep = "/")) )["num_class"]
+    eta_ = as.list( fread(paste(data_dir, "train.parameter", sep = "/")) )["eta"]
+    gamma_ = as.list( fread(paste(data_dir, "train.parameter", sep = "/")) )["gamma"]
+    max_depth_ = as.list( fread(paste(data_dir, "train.parameter", sep = "/")) )["max_depth"]
+    min_child_weight_ = as.list( fread(paste(data_dir, "train.parameter", sep = "/")) )["min_child_weight"]
+    subsample_ = as.list( fread(paste(data_dir, "train.parameter", sep = "/")) )["subsample"]
+    colsample_bytree_ = as.list( fread(paste(data_dir, "train.parameter", sep = "/")) )["colsample_bytree"]
+    eval_metric_ = as.list( fread(paste(data_dir, "train.parameter", sep = "/")) )["eval_metric"]
+    nthread_ = as.list( fread(paste(data_dir, "train.parameter", sep = "/")) )["nthread"]
+    params <- list(max_depth = max_depth_, eta = eta_, gamma = gamma_, nthread = nthread_, objective = objective_, eval_metric = eval_metric_, num_class = num_class_, min_child_weight = min_child_weight_, subsample = subsample_, colsample_bytree = colsample_bytree_)
   }
 
   # read train and test data
