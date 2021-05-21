@@ -20,17 +20,17 @@ train.model <- function(data_dir, output_dir, params=NA, nrounds = 20) {
     dir.create(output_dir, showWarnings = F, recursive = T)
   }
   if(is.na(params)){
-    _objective <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "objective")
-    _num_class <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "num_class")
-    _eta <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "eta")
-    _gamma <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "gamma")
-    _max_depth <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "max_depth")
-    _min_child_weight <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "min_child_weight")
-    _subsample <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "subsample")
-    _colsample_bytree <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "_colsample_bytree")
-    _eval_metric <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "_eval_metric")
-    _nthread <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "_nthread")
-    params <- list(max_depth = _max_depth, eta = _eta, gamma = _gamma, verbose = 0, nthread = _nthread, objective = _objective, eval_metric = _eval_metric, num_class = _num_class, min_child_weight = _min_child_weight, subsample = _subsample, colsample_bytree = _colsample_bytree)
+    objective_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "objective")
+    num_class_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "num_class")
+    eta_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "eta")
+    gamma_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "gamma")
+    max_depth_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "max_depth")
+    min_child_weight_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "min_child_weight")
+    subsample_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "subsample")
+    colsample_bytree_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "colsample_bytree")
+    eval_metric_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "eval_metric")
+    nthread_ <- get.parameter(params_table = paste(data, "train.parameter", sep = "/"), parameter = "nthread")
+    params <- list(max_depth = max_depth_, eta = eta_, gamma = gamma_, verbose = 0, nthread = nthread_, objective = objective_, eval_metric = eval_metric_, num_class = num_class_, min_child_weight = min_child_weight_, subsample = subsample_, colsample_bytree = colsample_bytree_)
   }
 
   # read train and test data
